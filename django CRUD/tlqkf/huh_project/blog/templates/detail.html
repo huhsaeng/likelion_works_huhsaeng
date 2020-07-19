@@ -1,0 +1,17 @@
+
+
+
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>{{blog.title}}</h1>
+<p>{{blog.pub_date}}</p>
+<p>{{blog.body}}</p>
+<a href="{% url 'blog' %}">돌아가자</a>
+<a href="{% url 'delete' blog.id %}">지우자</a>
+<a href="{% url 'update' blog.id %}">수정하자</a>
+
+
+  
+
+{% endblock %}

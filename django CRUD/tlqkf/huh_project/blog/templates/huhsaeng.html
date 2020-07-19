@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<!doctype html>
+<html lang="ko">
+	<head>
+	<meta charset="utf-8">
+        <title>어그로</title>
+        <style>
+            div { text-align: center; }
+        </style>
+    </head>
+    
+	<body>
+		<img src="https://w.namu.la/s/da803f231820ce91b5ab01b913ac48ade802691cf7d60c8228a2160384e9acee2c4f4c587992c3079d6b1e9383bdb16582956e035afb34660ec61273ab7caf03572ab1fe121391008b55ef3c0069f1aa173bd4db17fa48bc9a5a7fac37c3ef69" alt="My Image">
+        <p></p>
+        <a href="{% url 'blog' %}">미안하다 이거 보여주려고 어그로 끌었다. </a>
+        <p></p>
+        <a href="{% url 'blog' %}">나루토 사스케 싸움수준 실화냐 </a>
+        <p></p>
+        <a href="{% url 'blog' %}">가슴이 다 웅장해진다.</a>
+        <p></p>
+    </body>
+</html>
+
+{% endblock %}
