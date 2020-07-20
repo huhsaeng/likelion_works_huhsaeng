@@ -21,7 +21,24 @@
         <p></p>
         <a href="{% url 'blog' %}">가슴이 다 웅장해진다.</a>
         <p></p>
+        <div>
+        {% if articles.has_previous %}
+            <a href="?page =1">First</a>
+            <a href="?page={{ articles.previous_page_number }}">Previous</a>
+        {% endif %}
+    
+        <span>{{articles.number}}</span>
+        <span>of</span>
+        <span>{{articles.paginator.num_pages}}</span>
+    
+        {% if articles.has_next %}
+            <a href="?page={{ articles.next_page_number }}">NEXT</a>
+            <a href="?page={{ articles.paginator.num_pages }}">LAST</a>
+        {% endif %}
+        </div>
+        
     </body>
+
 </html>
 
 {% endblock %}

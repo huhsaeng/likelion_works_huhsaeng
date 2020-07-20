@@ -62,7 +62,6 @@ def update(request, blog_id):
 
 def fake(request):
     for i in range(10):
-
         blog = Blog()
         fake = Faker()
         blog.tilte = fake.name()
@@ -72,4 +71,18 @@ def fake(request):
     return redirect('/')
 
 def huhsaeng(request):
-    return render(request, 'huhsaeng.html')
+    blogs = Blog.objects
+
+    #blog를 퀴리셋으로 가져온다.
+    blog_list = Blog.objects.all()
+    
+    #2개씩 잘라서 페이지를 만든다.
+    paginator = Paginator(blog_list,10)
+
+    #실제 들어가는 내용을 가져온다.
+    page = request.GET.get('page')
+
+    #뿌릴 수 있게 가져온다.
+    articles = paginator.get_page(page)
+
+    return render(request, 'huhsaeng.html', {'blogs':blogs, 'articles':articles})
